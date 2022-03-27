@@ -12,7 +12,7 @@ namespace TicTacToe_Reupload.Migrations
                 name: "TicTacToeMoves",
                 columns: table => new
                 {
-                    Game_id = table.Column<int>(type: "int", nullable: true),
+                    Game_id = table.Column<int>(type: "bigint", nullable: true),
                     Box1 = table.Column<int>(type: "int", nullable: true),
                     Box2 = table.Column<int>(type: "int", nullable: true),
                     Box3 = table.Column<int>(type: "int", nullable: true),

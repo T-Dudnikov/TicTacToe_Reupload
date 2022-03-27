@@ -1,7 +1,7 @@
 ﻿var id = 1;
 $(document).ready(function () {
 	id = Date.now();
-	window.alert("id = " + id);
+	//window.alert("id = " + id);
 });
 
 // Function to reset game
