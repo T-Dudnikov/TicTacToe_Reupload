@@ -1,8 +1,51 @@
 ﻿var id = 1;
 $(document).ready(function () {
 	id = Date.now();
+
+	switch (localStorage.getItem("pages_counter")) {
+		case null:
+			localStorage.setItem("pages_counter", "1");
+			break;
+		case "0":
+			localStorage.setItem("pages_counter", "1");
+			break;
+		case "1":
+			localStorage.setItem("pages_counter", "2");
+			break;
+		case "2":
+			localStorage.setItem("pages_counter", "3");
+			break;
+		case "3":
+			window.close();
+			break;
+		default:
+			localStorage.setItem("pages_counter", "1");
+			break;
+	}
 	//window.alert("id = " + id);
 });
+
+window.onunload = (event) => {
+	switch (localStorage.getItem("pages_counter")) {
+		case null:
+			localStorage.setItem("pages_counter", "0");
+			break;
+		case "0":
+			localStorage.setItem("pages_counter", "0");
+			break;
+		case "1":
+			localStorage.setItem("pages_counter", "0");
+			break;
+		case "2":
+			localStorage.setItem("pages_counter", "1");
+			break;
+		case "3":
+			localStorage.setItem("pages_counter", "2");
+			break;
+		default:
+			break;
+	}
+};
 
 // Function to reset game
 function myfunc_reset() {
