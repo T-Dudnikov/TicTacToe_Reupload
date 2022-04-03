@@ -32,7 +32,7 @@ function get_jquery() {
 	mybody.allData += flag;
 	//window.alert("Data: " + mybody.allData);
 
-	$.post("/Home/OuterLogic", mybody, function (data) {
+	$.post("/Home/InnerLogic", mybody, function (data) {
 		//window.alert("Data: " + data);
 		if (data == "X won") {
 			document.getElementById('print').innerHTML = "Player X won";
