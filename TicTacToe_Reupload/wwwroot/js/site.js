@@ -1,50 +1,62 @@
 ﻿var id = 1;
-$(document).ready(function () {
+
+//Broadcast channel and two events to count opened pages.
+const bc = new BroadcastChannel('test_channel');
+bc.addEventListener('message', function (e) {
+	sessionStorage.setItem("pages_counter", e.data);
+})
+
+window.onload = (event) => {
 	id = Date.now();
 
-	switch (localStorage.getItem("pages_counter")) {
+	switch (sessionStorage.getItem("pages_counter")) {
 		case null:
-			localStorage.setItem("pages_counter", "1");
+			sessionStorage.setItem("pages_counter", "1");
 			break;
 		case "0":
-			localStorage.setItem("pages_counter", "1");
+			sessionStorage.setItem("pages_counter", "1");
 			break;
 		case "1":
-			localStorage.setItem("pages_counter", "2");
+			sessionStorage.setItem("pages_counter", "2");
 			break;
 		case "2":
-			localStorage.setItem("pages_counter", "3");
+			sessionStorage.setItem("pages_counter", "3");
 			break;
 		case "3":
+			sessionStorage.setItem("pages_counter", "4");
 			window.close();
 			break;
 		default:
-			localStorage.setItem("pages_counter", "1");
+			sessionStorage.setItem("pages_counter", "1");
 			break;
 	}
-	//window.alert("id = " + id);
-});
+	bc.postMessage(sessionStorage.getItem("pages_counter"));
+}
 
 window.onunload = (event) => {
-	switch (localStorage.getItem("pages_counter")) {
+	switch (sessionStorage.getItem("pages_counter")) {
 		case null:
-			localStorage.setItem("pages_counter", "0");
+			sessionStorage.setItem("pages_counter", "0");
 			break;
 		case "0":
-			localStorage.setItem("pages_counter", "0");
+			sessionStorage.setItem("pages_counter", "0");
 			break;
 		case "1":
-			localStorage.setItem("pages_counter", "0");
+			sessionStorage.setItem("pages_counter", "0");
 			break;
 		case "2":
-			localStorage.setItem("pages_counter", "1");
+			sessionStorage.setItem("pages_counter", "1");
 			break;
 		case "3":
-			localStorage.setItem("pages_counter", "2");
+			sessionStorage.setItem("pages_counter", "2");
+			break;
+		case "4":
+			sessionStorage.setItem("pages_counter", "3");
 			break;
 		default:
 			break;
 	}
+	bc.postMessage(sessionStorage.getItem("pages_counter"));
 };
 
 // Function to reset game
