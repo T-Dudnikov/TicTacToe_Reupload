@@ -180,9 +180,14 @@ namespace TicTacToe
                 { 
                     cmd.Connection.Close();
                 }
-                //TODO написать процедуру проверки на sql и вставить сюда.
             }
             return Ok(returnData);
+        }
+
+        public IActionResult RunReport()
+        {
+            //TODO: run the report here or work with reportViewer
+            return Ok();
         }
 
     }

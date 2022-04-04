@@ -51,6 +51,21 @@ h1 {
     font-size: 20px;
 }
 
+/* Box to run report file */
+#boxreport {
+    box-sizing: border-box;
+    width: 120px;
+    height: 30px;
+    border: 1px solid dodgerblue;
+    margin: auto;
+    border-radius: 4px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: white;
+    color: black;
+    font-size: 15px;
+    cursor: pointer;
+}
+
 /* Main Container */
 #main {
     text-align: center;

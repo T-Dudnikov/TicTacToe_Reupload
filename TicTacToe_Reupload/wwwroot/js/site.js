@@ -70,6 +70,10 @@ function myfunc_reset() {
 	flag = 1;
 }
 
+// Function to run a report
+function myfunc_report() {
+	$.get("/Home/RunReport", mybody, function (data) {});
+}
 // Function called whenever user tab on any box
 function get_jquery() {
 	const box = [];
